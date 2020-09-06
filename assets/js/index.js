@@ -1,6 +1,16 @@
 const root = document.getElementById('root');
-const loginButton = document.getElementById('login');
-const logo = document.getElementById('logo');
+const toggle = document.getElementById('toggle');
+
+// dark screen when navbar is deployed
+if (toggle){
+  toggle.addEventListener('change', () => {
+    if (toggle.checked){
+      root.style = 'filter: brightness(30%)';
+    } else {
+      root.style = 'filter: brightness(100%)';
+    }
+  })
+}
 
 
 const display = el => {
@@ -9,5 +19,3 @@ const display = el => {
   .then(res => root.innerHTML = res)
 }
 
-loginButton.addEventListener('click', () => display('admin'));
-logo.addEventListener('click', () => display('lobby'));

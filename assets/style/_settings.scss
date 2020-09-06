@@ -19,9 +19,13 @@ $black: #111;
 }
 a, a:visited {
   color: $white;
+  text-decoration: none;
 }
 body {
   font-family: $font-1;
   background: $color-2;
   color: $white;
+}
+#root {
+  transition: .3s;
 }

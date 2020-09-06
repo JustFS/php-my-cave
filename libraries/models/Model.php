@@ -1,7 +1,10 @@
 <?php
 
-require_once '../config/database.php';
-require_once '../config/session.php';
+namespace models;
+
+require_once (dirname(__DIR__) . '/config/database.php');
+require_once (dirname(__DIR__) . '/config/session.php');
+require_once (dirname(__DIR__) . '/config/config.php');
 
 abstract class Model
 {

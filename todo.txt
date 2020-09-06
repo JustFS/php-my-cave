@@ -1,8 +1,0 @@
-- navigation
-- login
-- lecture des éléments
-- ajout éléments
-- suppression
-- remove background
-- lecture dynamique (react...)
-- design

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @font-face {
   font-family: "font-1";
   src: url(fonts/SourceSansPro-Bold.ttf);
@@ -11,6 +12,7 @@
 
 a, a:visited {
   color: #eee;
+  text-decoration: none;
 }
 
 body {
@@ -19,11 +21,15 @@ body {
   color: #eee;
 }
 
+#root {
+  transition: 0.3s;
+}
+
 .lobby-container {
   background: #3E0018;
   height: 100%;
   min-height: 90vh;
-  border-radius: 70px 70px 0 0;
+  border-radius: 56px 56px 0 0;
   margin-top: 54px;
 }
 .lobby-container ul {
@@ -40,18 +46,169 @@ body {
   text-align: center;
   border-radius: 50%;
   margin-top: -34px;
+  box-shadow: 0 0 4px #333;
+}
+.lobby-container h2 {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+  padding: 22px 0;
+}
+
+.wine-card {
+  background: #885C7E;
+  border-radius: 25px;
+  padding: 20px;
+  margin: 0 8px 20px;
+  overflow: hidden;
+}
+.wine-card h2 {
+  text-align: left;
+  position: relative;
+}
+.wine-card h2:before {
+  content: "✖";
+  position: absolute;
+  color: #111;
+  width: 30px;
+  height: 30px;
+  right: -8px;
+  top: 4px;
+}
+.wine-card .container {
+  display: grid;
+  grid-template-columns: 60% 30%;
+}
+.wine-card .buttons {
+  display: flex;
+  margin-bottom: 20px;
+  width: 100%;
+  justify-content: space-between;
+}
+.wine-card .buttons h4 {
+  background: #3E0018;
+  border-radius: 20px;
+  padding: 10px 10px;
+  box-shadow: 0 0 4px #333;
+}
+.wine-card p {
+  font-weight: 100;
 }
 
 nav {
   display: flex;
   justify-content: space-between;
-  padding: 20px 20px;
+  margin: 20px auto 0;
 }
 nav img {
   width: 60%;
+  cursor: pointer;
+  margin-left: 10px;
+}
+nav ul {
+  position: relative;
 }
 nav ul i {
   font-size: 3.2rem;
+  margin-right: 20px;
+}
+nav #toggle {
+  position: absolute;
+  right: 20px;
+  width: 65px;
+  height: 50px;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 2;
+}
+nav .hamburger {
+  margin: -5px 20px 0 0;
+}
+nav .hamburger span {
+  width: 60px;
+  height: 6px;
+  border-radius: 5px;
+  background: #eee;
+  display: block;
+  margin-top: 10px;
+  transition: 0.5s ease;
+}
+nav #toggle:checked ~ .hamburger {
+  position: relative;
+}
+nav #toggle:checked ~ .hamburger span {
+  position: absolute;
+  top: 16px;
+  right: 0px;
+}
+nav #toggle:checked ~ .hamburger span:nth-child(1) {
+  transform: rotate(45deg);
+}
+nav #toggle:checked ~ .hamburger span:nth-child(2) {
+  opacity: 0;
+}
+nav #toggle:checked ~ .hamburger span:nth-child(3) {
+  transform: rotate(-45deg);
+}
+nav .hamburger-menu {
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.2s;
+  font-size: 2rem;
+  width: 100%;
+  top: 92px;
+  line-height: 100px;
+  cursor: pointer;
+  z-index: 10;
+}
+nav .hamburger-menu li {
+  text-align: center;
+  margin: 0 auto;
+  text-transform: uppercase;
+  transition: 0.3s ease;
+  background: #88002D;
+}
+nav .hamburger-menu li:hover {
+  background: #3E0018;
+}
+nav .hamburger-menu li:nth-child(1) {
+  transform: translateY(-68px);
+  z-index: 10;
+}
+nav .hamburger-menu li:nth-child(2) {
+  transform: translateY(-138px);
+  transition: 0.6s ease;
+  z-index: 8;
+}
+nav .hamburger-menu li:nth-child(3) {
+  transform: translateY(-204px);
+  transition: 0.9s ease;
+  border-radius: 0 0 40px 40px;
+  box-shadow: 0 2px 10px rgba(51, 51, 51, 0.7);
+}
+nav .hamburger-menu li:nth-child(2):before,
+nav .hamburger-menu li:nth-child(3):before {
+  content: "";
+  background: #eee;
+  height: 1px;
+  width: 85%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+nav #toggle:checked ~ .hamburger-menu {
+  visibility: visible;
+  opacity: 1;
+}
+nav #toggle:checked ~ .hamburger-menu li:nth-child(1) {
+  transform: translateY(0);
+}
+nav #toggle:checked ~ .hamburger-menu li:nth-child(2) {
+  transform: translateY(0);
+}
+nav #toggle:checked ~ .hamburger-menu li:nth-child(3) {
+  transform: translateY(0);
 }
 
 /*# sourceMappingURL=index.css.map */

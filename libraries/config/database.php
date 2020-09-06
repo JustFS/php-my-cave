@@ -10,7 +10,7 @@ function getPDO(): PDO
 {
 
   $servername = 'localhost';
-  $dbname = 'my-cave';
+  $dbname = 'my_cave';
   $user = 'root';
   $pass = '';
 

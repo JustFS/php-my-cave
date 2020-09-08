@@ -1,0 +1,45 @@
+.admin-container {
+  h2 {
+    margin: 20px 0 10px 30px;
+  }
+  .wine-card {
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 0 0px 20px;
+
+      h3 {
+        font-size: 2rem;
+        width: 80%;
+      }
+      i {
+        font-size: 1.5rem;
+      }
+    }
+  }
+}
+.update-container {
+  padding: 20px;
+
+  .update-list {
+    .header {
+      display: flex;
+      justify-content: space-between;
+    }
+    .update-checkbox:checked ~ .update {
+      visibility: visible;
+      position: unset;
+      opacity: 1;
+      transform: scaleY(1);
+    }
+    .update {
+      visibility: hidden;
+      position: fixed;
+      opacity: 0;
+      transform: scaleY(0);
+      transition: .3s ease;
+      transform-origin: top;
+    }
+  }
+}

@@ -9,7 +9,7 @@
   <?php
 
   $model = new \models\Wines();
-  $sql = $model->list();
+  $sql = $model->list('');
 
   while ($wine = $sql->fetch()) {
   ?>

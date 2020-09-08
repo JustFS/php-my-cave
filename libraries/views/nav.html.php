@@ -2,7 +2,6 @@
 
 require_once dirname(__DIR__) . '/config/config.php';
 require_once dirname(__DIR__) . '/config/session.php';
-
 ?>
 
 <nav>
@@ -14,31 +13,56 @@ require_once dirname(__DIR__) . '/config/session.php';
   <?php
   if (empty($_SESSION)) :
   ?>
-    <ul>
-      <li id="login">
-        <a href="<?= URLROOT . "/admin.php" ?>">
-          <i class="fas fa-sign-in-alt"></i>
-        </a>
-      </li>
-    </ul>
-  <?php
-  endif;
-  if (isset($_SESSION['email'])) :
-  ?>
-    <input type="checkbox" id="toggle">
-    <ul class="hamburger">
-      <span></span>
-      <span></span>
-      <span></span>
-    </ul>
-    <ul class="hamburger-menu">
-      <a href=""><li>Ajouter un vin</li></a>
-      <a href=""><li>Modifier un vin</li></a>
-      <a href="?logout"><li>Déconnexion</li></a>
-    </ul>
-
-  <?php
-  endif;
-  ?>
-
+  <ul>
+    <li id="login">
+      <a href="<?= URLROOT . "/admin.php" ?>">
+        <i class="fas fa-sign-in-alt"></i>
+      </a>
+    </li>
+  </ul>
 </nav>
+<?php
+  elseif (isset($_SESSION['email'])) :
+?>
+  <input type="checkbox" id="toggle">
+  <ul class="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </ul>
+<?php
+  if ($page === 'Accueil') :
+?>
+  <ul class="hamburger-menu">
+    <li>
+      <a href="?logout">Déconnexion</a>
+    </li>
+    <li>
+      <a href="<?= URLROOT . "/admin.php" ?>">Administration</a>
+    </li>
+  </ul>
+</nav>
+
+<?php
+  elseif ($page == 'Admin') :
+?>
+  <ul class="hamburger-menu">
+    <li>
+      <a href="?logout">Déconnexion</a>
+    </li>
+    <li>
+      <a href="<?= URLROOT . "/" ?>">Accueil</a>
+    </li>
+  </ul>
+</nav>
+<div class="admin-nav">
+  <h1 id="admin">Administration</h1>
+  <ul>
+    <li class="create">Ajouter un vin</li>
+    <li class="update">Modifier un vin</li>
+  </ul>
+</div>
+<?php
+  endif;
+endif;
+?>

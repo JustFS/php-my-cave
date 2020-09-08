@@ -1,12 +1,13 @@
 <?php
+require_once(dirname(__DIR__) . '/autoload.php');
 require_once(dirname(__DIR__) . '/config/session.php');
 ?>
 
 <div class="admin-container">
-  <h1>Page Admin</h1>
-    <?php
-    if (empty($_SESSION)) :
-    ?>
+  <?php
+  if (empty($_SESSION)) :
+  ?>
+    <h1>Administration</h1>
     <div class="login-container">
       <h2>Se connecter</h2>
 
@@ -22,14 +23,42 @@ require_once(dirname(__DIR__) . '/config/session.php');
         <button type="submit" name="submit-login">Connexion</button>
       </form>
     </div>
+  <?php
+  elseif (isset($_SESSION['email'])) :
+  ?>
     <?php
-    elseif (isset($_SESSION['email'])):
+
+    $model = new \models\Wines();
+    $sql = $model->list('LIMIT 1');
+
+    while ($wine = $sql->fetch()) {
     ?>
-    <h2>Ajouter</h2>
-    <h2>Modifier</h2>
-    <h2>suppimer</h2>
+      <h2>Dernier vin ajouté</h2>
+      <div class="wine-card">
+        <div class="header">
+          <h3><?= $wine['name'] ?></h3>
+          <i class="fas fa-pen"></i>
+          <i class="fas fa-trash-alt"></i>
+        </div>
+        <div class="container">
+          <div class="text-container">
+            <div class="buttons">
+              <h4><?= $wine['year'] ?></h4>
+              <h4><?= $wine['country'] ?></h4>
+              <h4><?= $wine['region'] ?></h4>
+            </div>
+            <p><?= $wine['description'] ?></p>
+          </div>
+          <img src="<?= $wine['picture'] ? "./assets/uploads/" . $wine['picture'] : './assets/img/generic.jpg' ?>" alt="photo-bouteille">
+        </div>
+
+      </div>
 
     <?php
-    endif;
+    };
     ?>
+
+  <?php
+  endif;
+  ?>
 </div>

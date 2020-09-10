@@ -2,6 +2,8 @@ nav {
   display: flex;
   justify-content: space-between;
   margin: 20px auto 0;
+  max-width: 1150px;
+  position: relative;
 
   img {
     width: 60%;
@@ -68,7 +70,7 @@ nav {
     transition: 0.2s;
     font-size: 2rem;
     width: 100%;
-    top: 92px;
+    top: 75px;
     cursor: pointer;
     z-index: 4;
     line-height: 100px;

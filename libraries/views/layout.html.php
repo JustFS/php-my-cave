@@ -17,7 +17,7 @@
 
   <div id="root"><?= $pageContent ?></div>
 
-  <script src="/php-my-cave/assets/js/index.js"></script>
+  <script src="./assets/js/index.js"></script>
 </body>
 
 </html>

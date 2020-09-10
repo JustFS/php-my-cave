@@ -33,14 +33,12 @@ if (admin){
   });
 }
 
-
-var req = new XMLHttpRequest(); 
-req.onload = function() {
-  data = parseJSON(this.responseText);
-
-  console.log(data);
-};
-req.open("get", "libraries/controllers/getData.php", true);
-req.send();
-
-console.log(data);
+// get data from mySql
+const list = new XMLHttpRequest();
+    list.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+          data = JSON.parse(this.responseText); 
+      }
+    };
+    list.open("GET","libraries/controllers/getData.php",true);
+    list.send();

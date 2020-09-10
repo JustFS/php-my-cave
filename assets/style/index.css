@@ -137,6 +137,39 @@ i {
   transition: 0.3s ease;
   transform-origin: top;
 }
+.update-container #modalDelete {
+  opacity: 0;
+  transform: scaleY(0);
+  visibility: hidden;
+  position: fixed;
+  transition: 0.3s;
+  background: #885C7E;
+  padding: 30px 30px;
+  border-radius: 30px;
+}
+.update-container #modalDelete:target {
+  opacity: 1;
+  visibility: visible;
+  position: fixed;
+  transform: scaleY(1);
+}
+.update-container #modalDelete .button-container {
+  display: flex;
+  justify-content: space-around;
+  margin: 15px 0 0;
+  padding: 0 40px;
+}
+.update-container #modalDelete .button-container a {
+  background: #88002D;
+  text-align: center;
+  margin: 0 auto;
+  padding: 10px 20px;
+  border-radius: 20px;
+  transition: 0.2s;
+}
+.update-container #modalDelete .button-container a:hover {
+  background: #3E0018;
+}
 
 nav {
   display: flex;

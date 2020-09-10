@@ -49,7 +49,7 @@ if (
 
 				$sth->execute();
 
-        // header('Location: ../../index.php');
+        header('Location: ../../admin.php');
 			} else {
 				echo 'Empty';
 			}

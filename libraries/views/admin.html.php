@@ -37,8 +37,9 @@ require_once(dirname(__DIR__) . '/config/session.php');
       <div class="wine-card">
         <div class="header">
           <h3><?= $wine['name'] ?></h3>
-          <i class="fas fa-pen"></i>
-          <i class="fas fa-trash-alt"></i>
+          <a href="libraries/controllers/deleteWine.php?id=<?= $wine['id'] ?>">
+            <i class="fas fa-trash-alt"></i>
+          </a>
         </div>
         <div class="container">
           <div class="text-container">

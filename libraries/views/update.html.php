@@ -7,6 +7,7 @@ require_once(dirname(__DIR__) . '/autoload.php');
   <div class="update-search">
     <input type="search" placeholder="rechercher">
     <select name="wines" id="wines">
+      <option value="" selected>Année</option>
       <option value="2020">2020</option>
       <option value="2019">2019</option>
       <option value="2018">2018</option>
@@ -36,12 +37,12 @@ require_once(dirname(__DIR__) . '/autoload.php');
         <h2><?= $wine['name'] ?></h2>
         <h4><?= $wine['year'] ?></h4>
         <!-- Update reveal onclick -->
-        <a href="admin.php?id=lol"><i class="fas fa-pen"></i></a>
+        <i class="fas fa-pen"></i>
         <input class="update-checkbox" type="checkbox">
         <div class="update">
-          <form action="*****.php" method="post" enctype="multipart/form-data">
+          <form action="libraries/controllers/updateWine.php?id=<?= $wine['id'] ?>" method="post" enctype="multipart/form-data">
             <label for="">Nom</label>
-            <input type="text" name="name" placeholder="<?= $wine['name'] ?>">
+            <input type="text" name="name" placeholder="<?= $wine['name'] ?>" value="<?= $wine['name'] ?>">
             <br>
             <label for="">Millésime</label>
             <select name="year">
@@ -64,23 +65,31 @@ require_once(dirname(__DIR__) . '/autoload.php');
 
             <br>
             <label for="">Cépage</label>
-            <input type="text" name="grapes" placeholder="<?= $wine['grapes'] ?>"><br>
+            <input type="text" name="grapes" placeholder="<?= $wine['grapes'] ?>" value="<?= $wine['grapes'] ?>"><br>
 
             <label for="">Pays</label>
-            <input type="text" name="country" placeholder="<?= $wine['country'] ?>"><br>
+            <input type="text" name="country" placeholder="<?= $wine['country'] ?>" value="<?= $wine['country'] ?>"><br>
 
             <label for="">Région</label>
-            <input type="text" name="region" placeholder="<?= $wine['region'] ?>"><br>
+            <input type="text" name="region" placeholder="<?= $wine['region'] ?>" value="<?= $wine['country'] ?>"><br>
 
             <label for="">Description</label>
-            <textarea name="description" placeholder="<?= $wine['description'] ?>" cols="30" rows="10"></textarea><br>
-
-            <input type="file" name="picture"><br>
+            <input name="description" placeholder="<?= $wine['description'] ?>" value="<?= $wine['country'] ?>"></input><br>
 
             <input type="submit" value="Envoyer">
           </form>
         </div>
-        <i class="fas fa-trash-alt"></i>
+        <a href="#modalDelete">
+          <i class="fas fa-trash-alt"></i>
+        </a>
+        <div id="modalDelete">
+          <h4>Voulez-vous supprimer définitivement cet article ?</h4>
+          <div class="button-container">
+            <a href="#">Non</a>
+            <a href="./libraries/controllers/deleteWine.php?id=<?= $wine['id'] ?>">Oui</a>
+          </div>
+        </div>
+        </a>
       </div>
     <?php
     };

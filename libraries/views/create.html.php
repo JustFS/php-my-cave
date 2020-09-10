@@ -1,7 +1,7 @@
 <div class="create-container">
   <h1>Ajouter un vin</h1>
   <div class="create-form">
-    <form action="libraries/controllers/wines.php" method="post" enctype="multipart/form-data">
+    <form action="libraries/controllers/createWines.php" method="post" enctype="multipart/form-data">
       <label for="">Nom</label>
       <input type="text" name="name" placeholder="nom">
       <br>

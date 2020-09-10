@@ -16,7 +16,7 @@ class Wines extends Model
       $limit
     ");
     $sql->setFetchMode(\PDO::FETCH_ASSOC);
-    
+
     return $sql;
   }
 
@@ -26,7 +26,25 @@ class Wines extends Model
       INSERT INTO wines (name, year, grapes, country, region, description, picture, author) 
       VALUES (:name,:year, :grapes, :country, :region,:description, :picture, :author)
     ");
-    
+
     return $sth;
+  }
+
+  public function update(int $id)
+  {
+    $sth = $this->pdo->prepare("
+      UPDATE wines 
+      SET name=:name, year=:year, grapes=:grapes,country=:country, region=:region, description=:description
+      WHERE id=$id
+    ");
+
+    return $sth;
+  }
+
+  public function delete(int $id)
+  {
+    $sql = $this->pdo->query("DELETE FROM wines WHERE id=$id");
+
+    return $sql;
   }
 }

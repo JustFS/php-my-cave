@@ -42,4 +42,41 @@
       transform-origin: top;
     }
   }
+  #modalDelete {
+    opacity: 0;
+    transform: scaleY(0);
+    visibility: hidden;
+    position: fixed;
+    transition: .3s;
+    background: $color-3;
+    padding: 30px 30px;
+    border-radius: 30px;
+
+    &:target {
+      opacity: 1;
+      visibility: visible;
+      position: fixed;
+      transform: scaleY(1);
+    }
+
+    .button-container {
+      display: flex;
+      justify-content: space-around;
+      margin: 15px 0 0;
+      padding: 0 40px;
+
+      a {
+        background: $color-2;
+        text-align: center;
+        margin: 0 auto;
+        padding: 10px 20px;
+        border-radius: 20px;
+        transition: .2s;
+
+        &:hover {
+          background: $color-1;
+        }
+      }
+    }
+  }
 }

@@ -3,7 +3,7 @@ const toggle = document.getElementById("toggle");
 const create = document.querySelectorAll(".create");
 const update = document.querySelectorAll(".update");
 const admin = document.getElementById("admin");
-const wineList = document.getElementById("wineList");
+const wineList = document.getElementById("wine-list");
 let data = [];
 
 // dark screen when navbar is deployed
@@ -20,8 +20,8 @@ if (toggle) {
 // dynamic nav
 const display = (el) => {
   fetch(`libraries/views/${el}.html.php`)
-    .then((res) => res.text())
-    .then((res) => (root.innerHTML = res));
+    .then(res => res.text())
+    .then(res => (root.innerHTML = res));
 };
 
 if (admin) {

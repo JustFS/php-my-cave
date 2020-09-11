@@ -1,4 +1,3 @@
-@charset "UTF-8";
 @font-face {
   font-family: "font-1";
   src: url(fonts/SourceSansPro-Bold.ttf);
@@ -13,6 +12,12 @@
 a, a:visited {
   color: #eee;
   text-decoration: none;
+}
+
+input {
+  outline: none;
+  background: #885C7E;
+  border: none;
 }
 
 body {
@@ -42,7 +47,8 @@ i {
   justify-content: space-around;
   font-size: 2.5rem;
   width: 90%;
-  margin: 0 auto;
+  margin: 0 auto 80px;
+  position: relative;
 }
 .lobby-container ul li {
   background: #885C7E;
@@ -53,11 +59,34 @@ i {
   margin-top: -34px;
   box-shadow: 0 0 4px #333;
 }
+.lobby-container ul input {
+  border-radius: 40px;
+  height: 60px;
+  position: absolute;
+  top: 38px;
+}
+.lobby-container ul .name input {
+  left: 0px;
+  top: 40px;
+  width: 380px;
+}
+.lobby-container ul .country input {
+  left: 50%;
+  transform: translateX(-50%);
+  width: 220px;
+}
+.lobby-container ul .grapes input {
+  right: 0px;
+  width: 220px;
+}
 .lobby-container h2 {
   text-transform: uppercase;
   letter-spacing: 1px;
   text-align: center;
-  padding: 22px 0;
+}
+
+#wine-list {
+  margin-top: 30px;
 }
 
 .wine-card {
@@ -67,39 +96,46 @@ i {
   margin: 0 8px 20px;
   overflow: hidden;
 }
-.wine-card h2 {
-  text-align: left;
-  position: relative;
+.wine-card .card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 21px 0;
 }
-.wine-card h2:before {
-  content: "✖";
-  position: absolute;
-  color: #111;
-  width: 30px;
-  height: 30px;
-  right: -8px;
-  top: 4px;
+.wine-card .card-header h2 {
+  padding: 0;
 }
-.wine-card .container {
+.wine-card .card-header i {
+  margin-right: 6px;
+  font-size: 1.3rem;
+}
+
+.container {
   display: grid;
   grid-template-columns: 60% 30%;
 }
-.wine-card .buttons {
+
+.buttons {
   display: flex;
   margin-bottom: 20px;
   width: 100%;
   justify-content: space-between;
 }
-.wine-card .buttons h4 {
+.buttons h4 {
   background: #3E0018;
   border-radius: 20px;
   padding: 10px 10px;
   box-shadow: 0 0 4px #333;
 }
-.wine-card p {
+
+p {
   font-weight: 100;
 }
 
+.admin-container {
+  max-width: 1150px;
+  margin: 0 auto;
+}
 .admin-container h2 {
   margin: 20px 0 10px 30px;
 }

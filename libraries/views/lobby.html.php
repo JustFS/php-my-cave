@@ -1,14 +1,26 @@
 <div id="vue-app" class="lobby-container">
   <ul>
-    <li><i class="fas fa-search"></i></li>
-    <li><i class="fas fa-globe-europe"></i></li>
-    <li><i class="fas fa-wine-glass-alt"></i></li>
+    <li v-on:click="searchInput('name')" class="name">
+      <i class="fas fa-search"></i>
+      <input v-if="inputType == 'name'" type="search" placeholder="Entrez le nom d'un vin...">
+    </li>
+    <li v-on:click="searchInput('country')" class="country">
+      <i class="fas fa-globe-europe"></i>
+      <input v-if="inputType == 'country'" type="search">
+    </li>
+    <li v-on:click="searchInput('grapes')" class="grapes">
+      <i class="fas fa-wine-glass-alt"></i>
+      <input v-if="inputType == 'grapes'" type="search">
+    </li>
   </ul>
-  <h2>Liste des vins</h2>
+  <h2 v-if="inputType == ''">Liste des vins</h2>
 
-  <div v-for="wine in wines" id="wineList">
+  <div v-for="wine, id in wines" id="wine-list">
     <div class="wine-card">
-      <h2>{{wine.name}}</h2>
+      <div class="card-header">
+        <h2>{{wine.name}}</h2>
+        <i @click="removeItem(id)" class="fas fa-times"></i>
+      </div>
       <div class="container">
         <div class="text-container">
           <div class="buttons">

@@ -1,13 +1,22 @@
 const vue = new Vue({
-  name: 'home',
   data: () => {
     return {
-      wines: []
+      wines: [],
+      inputType: ''
     }
+  },
+  computed: {
+
   },
   methods: {
     getImgUrl(pic) {
       return 'assets/uploads/'+ pic
+    },
+    searchInput(arg) {
+      this.inputType = arg;
+    },
+    removeItem(id) {
+      this.$delete(this.wines, id)   
     }
   },
   mounted() {

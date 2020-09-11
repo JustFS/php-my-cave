@@ -11,7 +11,8 @@
     justify-content: space-around;
     font-size: 2.5rem;
     width: 90%;
-    margin: 0 auto;
+    margin: 0 auto 80px;
+    position: relative;
 
     li {
       background: $color-3;
@@ -22,13 +23,41 @@
       margin-top: -34px;
       box-shadow: 0 0 4px #333;
     }
+    input {
+      border-radius: 40px;
+      height: 60px;
+      position: absolute;
+      top: 38px;
+    }
+    .name {
+      input {
+        left: 0px;
+        top: 40px;
+        width: 380px;
+      }
+    }
+    .country {
+      input {
+        left: 50%;
+        transform: translateX(-50%);
+        width: 220px;
+      }
+    }
+    .grapes {
+      input {
+        right: 0px;
+        width: 220px;
+      }
+    }
   }
   h2 {
     text-transform: uppercase;
     letter-spacing: 1px;
     text-align: center;
-    padding: 22px 0;
   }
+}
+#wine-list {
+  margin-top: 30px;
 }
 .wine-card {
   background: $color-3;
@@ -37,38 +66,39 @@
   margin: 0 8px 20px;
   overflow: hidden;
 
-  h2 {
-    text-align: left;
-    position: relative;
-
-    &:before {
-      content: '\2716';
-      position: absolute;
-      color: $black;
-      width: 30px;
-      height: 30px;
-      right: -8px;
-      top: 4px;
-    }
-  }
-  .container {
-    display: grid;
-    grid-template-columns: 60% 30%;
-  }
-  .buttons {
+  .card-header {
     display: flex;
-    margin-bottom: 20px;
-    width: 100%;
     justify-content: space-between;
+    align-items: center;
+    margin: 21px 0;
 
-    h4 {
-      background: $color-1;
-      border-radius: 20px;
-      padding: 10px 10px;
-      box-shadow: 0 0 4px #333;
+    h2 {
+      padding: 0;
+    }
+    i {
+      margin-right: 6px;
+      font-size: 1.3rem;
     }
   }
-  p {
-    font-weight: 100;
-  }
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 60% 30%;
+}
+.buttons {
+  display: flex;
+  margin-bottom: 20px;
+  width: 100%;
+  justify-content: space-between;
+
+  h4 {
+    background: $color-1;
+    border-radius: 20px;
+    padding: 10px 10px;
+    box-shadow: 0 0 4px #333;
+  } 
+}
+p {
+  font-weight: 100;
 }

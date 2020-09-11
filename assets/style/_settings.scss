@@ -21,6 +21,11 @@ a, a:visited {
   color: $white;
   text-decoration: none;
 }
+input {
+  outline: none;
+  background: $color-3;
+  border: none;
+}
 body {
   font-family: $font-1;
   background: $color-2;

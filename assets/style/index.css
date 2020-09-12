@@ -16,7 +16,7 @@ a, a:visited {
 
 input {
   outline: none;
-  background: #885C7E;
+  background: #88002D;
   border: none;
 }
 
@@ -38,8 +38,9 @@ i {
   background: #3E0018;
   height: 100%;
   min-height: 90vh;
-  border-radius: 56px 56px 0 0;
+  border-radius: 56px;
   margin: 54px auto 0;
+  padding-bottom: 20px;
   max-width: 1150px;
 }
 .lobby-container ul {
@@ -47,7 +48,7 @@ i {
   justify-content: space-around;
   font-size: 2.5rem;
   width: 90%;
-  margin: 0 auto 80px;
+  margin: 0 auto 0;
   position: relative;
 }
 .lobby-container ul li {
@@ -58,8 +59,9 @@ i {
   border-radius: 50%;
   margin-top: -34px;
   box-shadow: 0 0 4px #333;
+  cursor: pointer;
 }
-.lobby-container ul input {
+.lobby-container ul input, .lobby-container ul select {
   border-radius: 40px;
   height: 60px;
   position: absolute;
@@ -69,15 +71,45 @@ i {
   left: 0px;
   top: 40px;
   width: 380px;
+  transform-origin: left;
+  transform: scaleX(0);
+  animation: animInput 0.5s ease forwards;
 }
-.lobby-container ul .country input {
+@keyframes animInput {
+  to {
+    transform: scaleX(1);
+  }
+}
+.lobby-container ul .country select {
   left: 50%;
   transform: translateX(-50%);
   width: 220px;
+  animation: animInput2 0.4s ease forwards;
+  transform: scaleX(0);
+  transform-origin: left;
+  background: #88002D;
+  border: none;
+  outline: none;
+}
+@keyframes animInput2 {
+  to {
+    transform: scaleX(1) translateX(-50%);
+  }
+}
+.lobby-container ul .country h2 {
+  position: absolute;
+  font-size: 2rem;
+  letter-spacing: 2px;
+  left: 50%;
+  padding-top: 23px;
+  transform: translateX(-50%);
 }
 .lobby-container ul .grapes input {
   right: 0px;
   width: 220px;
+  transform-origin: right;
+  transform: scaleX(0);
+  animation: animInput 0.5s ease forwards;
 }
 .lobby-container h2 {
   text-transform: uppercase;
@@ -85,8 +117,15 @@ i {
   text-align: center;
 }
 
-#wine-list {
-  margin-top: 30px;
+h3 {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 130px;
+}
+
+#vue-app > div:nth-child(2) {
+  margin-top: 70px;
 }
 
 .wine-card {

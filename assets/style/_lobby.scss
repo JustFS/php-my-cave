@@ -25,17 +25,19 @@
       box-shadow: 0 0 4px #333;
       cursor: pointer;
     }
-    input, select {
+    .search, select, .radio-container {
       border-radius: 40px;
       height: 60px;
       position: absolute;
       top: 38px;
+      padding: 0 20px;
+      color: $color-1;
     }
     .name {
       input {
         left: 0px;
         top: 40px;
-        width: 380px;
+        width: 90%;
         transform-origin: left;
         transform: scaleX(0);
         animation: animInput 0.5s ease forwards;
@@ -58,6 +60,7 @@
         background: $color-2;
         border: none;
         outline: none;
+        z-index: 2;
 
         @keyframes animInput2 {
           to {
@@ -75,12 +78,34 @@
       }
     }
     .grapes {
-      input {
-        right: 0px;
-        width: 220px;
+      .radio-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        right: 0;
+        width: 90%;
+        background: $color-2;
         transform-origin: right;
         transform: scaleX(0);
         animation: animInput 0.5s ease forwards;
+
+        .radio {
+          display: flex;
+          align-items: center;
+          
+          label {
+            font-size: .8rem;
+            text-transform: uppercase;
+            margin-right: 10px;
+          }
+          input {
+            padding: 0 10px;
+            background: none;
+          }
+        }
+      }
+      input {
+
       }
     }
   }

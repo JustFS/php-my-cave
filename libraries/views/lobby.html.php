@@ -2,25 +2,30 @@
   <ul>
     <li v-on:click="searchInput('name')" class="name">
       <i class="fas fa-search"></i>
-      <input v-if="inputType == 'name'" v-model="searchKey" type="search" placeholder="Entrez le nom d'un vin...">
+      <input v-if="inputType == 'name'" v-model="searchKey" type="search" class="search" placeholder="Entrez le nom d'un vin...">
     </li>
-    <li v-on:click="searchInput('country')" class="country">
-      <i class="fas fa-globe-europe"></i>
-      <select v-if="inputType == 'country'" v-model="countrySelected">
-        <option selected>Choisir pays</option>
-        <option v-for="option in sortedCountry" v-bind:value="option.id">{{option.name}}</option>
-      </select>
 
+    <li v-on:click="searchInput('country');" class="country">
+      <i class="fas fa-globe-europe"></i>
+      <select v-show="inputType == 'country'" v-model="countrySelected" :value="test">
+        <option v-for="option in countryOption" v-bind:value="option.id">{{option.name}}</option>
+      </select>
       <h2 v-if="inputType == ''">Liste des vins</h2>
     </li>
+
     <li v-on:click="searchInput('grapes')" class="grapes">
       <i class="fas fa-wine-glass-alt"></i>
-      <input v-if="inputType == 'grapes'" type="search">
+      <div class="radio-container" v-if="inputType == 'grapes'">
+        <div v-for="grape in grapesRadio" class="radio">
+          <label v-bind:for="grape.name">{{grape.name}}</label>
+          <input v-model="grapesSelected" v-bind:id="grape.name" v-bind:value="grape.name" type="radio" class="radio-button">
+        </div>
+      </div>
     </li>
   </ul>
 
-  <h3 v-if="searchByName.length == 0">Aucun résultat</h3>
-  <div v-for="wine, id in searchByName" class="wine-list">
+  <h3 v-if="search.length == 0">Aucun résultat</h3>
+  <div v-for="wine, id in search" class="wine-list">
     <div class="wine-card">
       <div class="card-header">
         <h2>{{wine.name}}</h2>

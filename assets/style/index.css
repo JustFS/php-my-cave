@@ -61,16 +61,18 @@ i {
   box-shadow: 0 0 4px #333;
   cursor: pointer;
 }
-.lobby-container ul input, .lobby-container ul select {
+.lobby-container ul .search, .lobby-container ul select, .lobby-container ul .radio-container {
   border-radius: 40px;
   height: 60px;
   position: absolute;
   top: 38px;
+  padding: 0 20px;
+  color: #3E0018;
 }
 .lobby-container ul .name input {
   left: 0px;
   top: 40px;
-  width: 380px;
+  width: 90%;
   transform-origin: left;
   transform: scaleX(0);
   animation: animInput 0.5s ease forwards;
@@ -90,6 +92,7 @@ i {
   background: #88002D;
   border: none;
   outline: none;
+  z-index: 2;
 }
 @keyframes animInput2 {
   to {
@@ -104,12 +107,29 @@ i {
   padding-top: 23px;
   transform: translateX(-50%);
 }
-.lobby-container ul .grapes input {
-  right: 0px;
-  width: 220px;
+.lobby-container ul .grapes .radio-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  right: 0;
+  width: 90%;
+  background: #88002D;
   transform-origin: right;
   transform: scaleX(0);
   animation: animInput 0.5s ease forwards;
+}
+.lobby-container ul .grapes .radio-container .radio {
+  display: flex;
+  align-items: center;
+}
+.lobby-container ul .grapes .radio-container .radio label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  margin-right: 10px;
+}
+.lobby-container ul .grapes .radio-container .radio input {
+  padding: 0 10px;
+  background: none;
 }
 .lobby-container h2 {
   text-transform: uppercase;

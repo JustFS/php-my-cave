@@ -61,31 +61,45 @@ i {
   box-shadow: 0 0 4px #333;
   cursor: pointer;
 }
-.lobby-container ul .search, .lobby-container ul select, .lobby-container ul .radio-container {
+.lobby-container ul .search,
+.lobby-container ul select,
+.lobby-container ul .radio-container {
   border-radius: 40px;
   height: 60px;
   position: absolute;
-  top: 38px;
+  top: 45px;
   padding: 0 20px;
   color: #3E0018;
+  max-width: 550px;
 }
 .lobby-container ul .name input {
   left: 0px;
-  top: 40px;
   width: 90%;
   transform-origin: left;
   transform: scaleX(0);
   animation: animInput 0.5s ease forwards;
+  font-family: "font-1", sans-serif;
+}
+.lobby-container ul .name input::placeholder {
+  font-size: 1.3rem;
+  color: #3E0018;
+  transform: translateY(2px);
 }
 @keyframes animInput {
   to {
     transform: scaleX(1);
   }
 }
+.lobby-container ul .name i {
+  transform: translateX(-2px);
+}
+.lobby-container ul .country i {
+  transform: translate(-1px, 1px);
+}
 .lobby-container ul .country select {
   left: 50%;
   transform: translateX(-50%);
-  width: 220px;
+  width: 320px;
   animation: animInput2 0.4s ease forwards;
   transform: scaleX(0);
   transform-origin: left;
@@ -93,6 +107,10 @@ i {
   border: none;
   outline: none;
   z-index: 2;
+  font-size: 1.3rem;
+  text-align: center;
+  color: #3E0018;
+  font-family: "font-1", sans-serif;
 }
 @keyframes animInput2 {
   to {
@@ -105,7 +123,8 @@ i {
   letter-spacing: 2px;
   left: 50%;
   padding-top: 23px;
-  transform: translateX(-50%);
+  transform: translate(-50%, 4px);
+  width: 450px;
 }
 .lobby-container ul .grapes .radio-container {
   display: flex;
@@ -118,6 +137,11 @@ i {
   transform: scaleX(0);
   animation: animInput 0.5s ease forwards;
 }
+@media screen and (max-width: 650px) {
+  .lobby-container ul .grapes .radio-container {
+    width: 100%;
+  }
+}
 .lobby-container ul .grapes .radio-container .radio {
   display: flex;
   align-items: center;
@@ -126,6 +150,13 @@ i {
   font-size: 0.8rem;
   text-transform: uppercase;
   margin-right: 10px;
+  font-size: 1.05rem;
+}
+@media screen and (max-width: 650px) {
+  .lobby-container ul .grapes .radio-container .radio label {
+    font-size: 0.8rem;
+    margin-right: 1px;
+  }
 }
 .lobby-container ul .grapes .radio-container .radio input {
   padding: 0 10px;
@@ -145,50 +176,100 @@ h3 {
 }
 
 #vue-app > div:nth-child(2) {
-  margin-top: 70px;
+  margin-top: 81px;
 }
 
-.wine-card {
+.list-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+@media screen and (min-width: 850px) {
+  .list-container .wine-list {
+    width: 50%;
+  }
+}
+.list-container .wine-card {
   background: #885C7E;
   border-radius: 25px;
   padding: 20px;
   margin: 0 8px 20px;
   overflow: hidden;
+  position: relative;
+  height: 440px;
+  box-shadow: 1px 1px 5px rgba(226, 226, 226, 0.178);
 }
-.wine-card .card-header {
+@media screen and (min-width: 850px) {
+  .list-container .wine-card {
+    width: 97%;
+  }
+}
+.list-container .wine-card:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100px;
+  background: url("../img/card-bg.jpg") center 75%/cover;
+  top: 0;
+  left: 0;
+  opacity: 0.55;
+  border-radius: 0 0 120px 45%/60px;
+}
+.list-container .wine-card .card-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 21px 0;
+  margin: 8px 20px 42px;
 }
-.wine-card .card-header h2 {
+.list-container .wine-card .card-header h2 {
   padding: 0;
+  z-index: 20;
+  font-size: 1.8rem;
 }
-.wine-card .card-header i {
+.list-container .wine-card .card-header i {
   margin-right: 6px;
   font-size: 1.3rem;
+  z-index: 20;
 }
-
-.container {
+.list-container .container {
   display: grid;
-  grid-template-columns: 60% 30%;
+  grid-template-columns: 73% 27%;
 }
-
-.buttons {
+.list-container .container .text-container .buttons {
   display: flex;
-  margin-bottom: 20px;
+  margin: 24px 0 20px;
   width: 100%;
   justify-content: space-between;
 }
-.buttons h4 {
+.list-container .container .text-container .buttons h4 {
   background: #3E0018;
   border-radius: 20px;
   padding: 10px 10px;
   box-shadow: 0 0 4px #333;
 }
-
-p {
+.list-container .container .text-container .location {
+  margin: 20px 0 20px;
+}
+.list-container .container .text-container .location i {
+  color: #3E0018;
+  font-size: 1.4rem;
+  margin-right: 6px;
+}
+.list-container .container .text-container .location span {
+  font-size: 1.3rem;
+}
+.list-container .container .text-container p {
   font-weight: 100;
+  text-align: justify;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 8;
+  overflow: hidden;
+}
+.list-container .container img {
+  margin: 0 auto;
+  padding: 20px 0 0 20px;
+  max-height: 300px;
 }
 
 .admin-container {

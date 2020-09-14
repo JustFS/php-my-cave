@@ -8,9 +8,10 @@ const vue = new Vue({
       countryOption: [],
       countrySelected: "",
       grapesRadio: [
-        {'name' : 'Cabernet'}, 
+        {'name' : 'Pinot Noir'}, 
         {'name': 'Sauvignon'},
-        {'name' : 'Shiraz'}
+        {'name' : 'Merlot'},
+        {'name' : 'Chardonnay'}
       ],
       grapesSelected: ''
     };

@@ -39,32 +39,8 @@ if (admin) {
 // list.onreadystatechange = function () {
 //   if (this.readyState == 4 && this.status == 200) {
 //     data = JSON.parse(this.responseText);
-//     listDisplay();
+//     console.log(data);
 //   }
 // };
 // list.open("GET", "libraries/controllers/getData.php", true);
 // list.send();
-
-// const listDisplay = () => {
-//   wineList.innerHTML = data
-//     .map(
-//       (wine) =>
-//         `
-//         <div class="wine-card">
-//           <h2>${wine.name}</h2>
-//           <div class="container">
-//             <div class="text-container">
-//               <div class="buttons">
-//                 <h4>${wine.year}</h4>
-//                 <h4>${wine.country}</h4>
-//                 <h4>${wine.region}</h4>
-//               </div>
-//               <p>${wine.description}</p>
-//             </div>
-//             <img src="assets/uploads/${wine.picture}" alt="photo-bouteille">
-//           </div>
-//         </div>
-//       `
-//     )
-//     .join("");
-// };

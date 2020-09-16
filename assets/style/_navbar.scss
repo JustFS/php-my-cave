@@ -137,7 +137,9 @@ nav {
   }
   ul {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    max-width: 700px;
+    margin: 0 auto;
 
     li {
       background: $color-3;

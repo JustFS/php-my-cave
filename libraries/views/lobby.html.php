@@ -1,4 +1,8 @@
 <div id="vue-app" class="lobby-container">
+  <div @click="cancelSearch" v-if="searchKey || countrySelected || grapesSelected" class="cancel">
+    <h5>Annuler recherche</h5>
+    <i class="fas fa-times"></i>
+  </div>
   <ul>
     <li v-on:click="searchInput('name')" class="name">
       <i class="fas fa-search"></i>
@@ -11,7 +15,6 @@
         <option value="">Choisissez un pays</option>
         <option v-for="option in countryOption" :value="option.id">{{option.name}}</option>
       </select>
-      <h2 v-if="inputType == ''">Liste des vins</h2>
     </li>
 
     <li v-on:click="searchInput('grapes')" class="grapes">
@@ -25,9 +28,11 @@
     </li>
   </ul>
 
+  <h1 v-if="inputType == ''" class="title">Liste des vins</h1>
   <h3 v-if="search.length == 0">Aucun résultat</h3>
-  <div class="list-container">
-    <div v-for="wine, id in search" class="wine-list">
+
+  <transition-group name="item-anim" tag="div" class="list-container">
+    <div v-for="wine, id in search" :key="wine.id" class="wine-list">
       <div class="wine-card">
         <div class="card-header">
           <h2>{{wine.name}}</h2>
@@ -50,5 +55,5 @@
         </div>
       </div>
     </div>
-  </div>
+  </transition-group>
 </div>

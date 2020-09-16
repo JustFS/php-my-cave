@@ -14,7 +14,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "sass": "sass --watch ./assets/style/index.scss:./assets/style/index.css",
-    "bs": "browser-sync start --proxy localhost/php-my-cave  --files '**/*' --no-notify"
+    "start": "browser-sync start --proxy localhost/php-my-cave  --files '**/*' --no-notify"
   },
   "repository": {
     "type": "git",

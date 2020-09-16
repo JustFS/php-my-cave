@@ -2,10 +2,10 @@
   <h1>Ajouter un vin</h1>
   <div class="create-form">
     <form action="libraries/controllers/createWines.php" method="post" enctype="multipart/form-data">
-      <label for="">Nom</label>
+      <label for="">Nom</label><br>
       <input type="text" name="name" placeholder="nom">
       <br>
-      <label for="">Millésime</label>
+      <label for="">Millésime</label><br>
       <select name="year">
         <option value="2020">2020</option>
         <option value="2019">2019</option>
@@ -30,21 +30,24 @@
         <option value="2000">2000</option>
       </select>
       <br>
-      <label for="">Cépage</label>
+      <label for="">Cépage</label><br>
       <input type="text" name="grapes" placeholder="cépage"><br>
 
-      <label for="">Pays</label>
+      <label for="">Pays</label><br>
       <input type="text" name="country" placeholder="pays"><br>
 
-      <label for="">Région</label>
+      <label for="">Région</label><br>
       <input type="text" name="region" placeholder="région"><br>
 
-      <label for="">Description</label>
+      <label for="">Description</label><br>
       <textarea name="description" placeholder="description du vin..." cols="30" rows="10"></textarea><br>
+
 
       <input type="file" name="picture"><br>
 
-      <input type="submit" value="Envoyer">
+      <div class="create-btn">
+        <input type="submit" value="Envoyer">
+      </div>
     </form>
   </div>
 

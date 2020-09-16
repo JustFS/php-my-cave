@@ -31,7 +31,7 @@ class Login
 					$_SESSION['id'] = $db_id;
 					$_SESSION['email'] = $db_email;
 
-					echo "<div class='blue'>Vous êtes connecté</div>";
+					// echo "<div class='blue'>Vous êtes connecté</div>";
 					// header('Location: login.php');
 				} else {
 					echo "<div class='red'>Identifiants non reconnus.</div>";

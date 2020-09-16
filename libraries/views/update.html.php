@@ -4,9 +4,9 @@ require_once(dirname(__DIR__) . '/autoload.php');
 
 <div class="update-container">
   <h1>Modifier</h1>
-  <div class="update-search">
-    <input type="search" placeholder="rechercher">
-    <select name="wines" id="wines">
+  <form action="libraries/controllers/searchWines.php" method="POST" class="update-search">
+    <input type="search" placeholder="Nom du vin" name="name">
+    <select name="year" id="wines">
       <option value="" selected>Année</option>
       <option value="2020">2020</option>
       <option value="2019">2019</option>
@@ -18,9 +18,19 @@ require_once(dirname(__DIR__) . '/autoload.php');
       <option value="2013">2013</option>
       <option value="2012">2012</option>
       <option value="2011">2011</option>
-      <option value="2010">2010</option>
+      <option value="2010">2009</option>
+      <option value="2010">2008</option>
+      <option value="2010">2007</option>
+      <option value="2010">2006</option>
+      <option value="2010">2005</option>
+      <option value="2010">2004</option>
+      <option value="2010">2003</option>
+      <option value="2010">2002</option>
+      <option value="2010">2001</option>
+      <option value="2010">2000</option>
     </select>
-  </div>
+    <input type="submit" value="Rechercher">
+  </form>
   <div class="update-list">
     <div class="header">
       <h3>Nom</h3>
@@ -39,7 +49,11 @@ require_once(dirname(__DIR__) . '/autoload.php');
         <!-- Update reveal onclick -->
         <i class="fas fa-pen"></i>
         <input class="update-checkbox" type="checkbox">
+        <a href="#modalDelete">
+          <i class="fas fa-trash-alt"></i>
+        </a>
         <div class="update">
+          <h2>Mettre à jour : <?php echo $wine["name"] ?></h2>
           <form action="libraries/controllers/updateWine.php?id=<?= $wine['id'] ?>" method="post" enctype="multipart/form-data">
             <label for="">Nom</label>
             <input type="text" name="name" placeholder="<?= $wine['name'] ?>" value="<?= $wine['name'] ?>">
@@ -61,6 +75,9 @@ require_once(dirname(__DIR__) . '/autoload.php');
               <option value="2009" <?php echo $wine["year"] == 2009 ? "selected" : '' ?>>2009</option>
               <option value="2008" <?php echo $wine["year"] == 2008 ? "selected" : '' ?>>2008</option>
               <option value="2007" <?php echo $wine["year"] == 2007 ? "selected" : '' ?>>2007</option>
+              <option value="2007" <?php echo $wine["year"] == 2006 ? "selected" : '' ?>>2006</option>
+              <option value="2007" <?php echo $wine["year"] == 2005 ? "selected" : '' ?>>2005</option>
+              <option value="2007" <?php echo $wine["year"] == 2004 ? "selected" : '' ?>>2004</option>
             </select>
 
             <br>
@@ -74,19 +91,18 @@ require_once(dirname(__DIR__) . '/autoload.php');
             <input type="text" name="region" placeholder="<?= $wine['region'] ?>" value="<?= $wine['country'] ?>"><br>
 
             <label for="">Description</label>
-            <input name="description" placeholder="<?= $wine['description'] ?>" value="<?= $wine['country'] ?>"></input><br>
+            <input name="description" placeholder="<?= $wine['description'] ?>" value="<?= $wine['description'] ?>"></input><br>
 
-            <input type="submit" value="Envoyer">
+            <div class="submit-btn">
+              <input type="submit" value="Envoyer">
+            </div>
           </form>
         </div>
-        <a href="#modalDelete">
-          <i class="fas fa-trash-alt"></i>
-        </a>
         <div id="modalDelete">
           <h4>Voulez-vous supprimer définitivement cet article ?</h4>
           <div class="button-container">
-            <a href="#">Non</a>
             <a href="./libraries/controllers/deleteWine.php?id=<?= $wine['id'] ?>">Oui</a>
+            <a href="#">Non</a>
           </div>
         </div>
         </a>

@@ -21,7 +21,7 @@ a, a:visited {
   color: $white;
   text-decoration: none;
 }
-input {
+input, select {
   outline: none;
   background: $color-2;
   border: none;

@@ -8,21 +8,24 @@ const vue = new Vue({
       countryOption: [],
       countrySelected: "",
       grapesRadio: [
-        {'name' : 'Pinot Noir'}, 
-        {'name': 'Sauvignon'},
-        {'name' : 'Merlot'},
-        {'name' : 'Chardonnay'}
+        { name: "Pinot Noir" },
+        { name: "Sauvignon" },
+        { name: "Merlot" },
+        { name: "Chardonnay" },
       ],
-      grapesSelected: ''
+      grapesSelected: "",
     };
   },
   computed: {
     search() {
-      return this.wines
-        .filter((wine) => {
-          return wine.name.toLowerCase().includes(this.searchKey.toLowerCase()) 
-          && wine.country.toLowerCase().includes(this.countrySelected.toLowerCase())
-          && wine.grapes.toLowerCase().includes(this.grapesSelected.toLowerCase());
+      return this.wines.filter((wine) => {
+        return (
+          wine.name.toLowerCase().includes(this.searchKey.toLowerCase()) &&
+          wine.country
+            .toLowerCase()
+            .includes(this.countrySelected.toLowerCase()) &&
+          wine.grapes.toLowerCase().includes(this.grapesSelected.toLowerCase())
+        );
       });
     },
   },
@@ -36,12 +39,19 @@ const vue = new Vue({
     removeItem(id) {
       this.$delete(this.wines, id);
     },
+    cancelSearch() {
+      this.searchKey = "";
+      this.countrySelected = "";
+      this.grapesSelected = "";
+    },
   },
   mounted() {
     axios
       .get("libraries/controllers/getData.php")
       .then((res) => res.data)
-      .then((res) => {this.wines = res})
+      .then((res) => {
+        this.wines = res;
+      })
       .then(() => {
         for (let i = 0; i <= this.wines.length; i++) {
           if (!this.countryList.includes(this.wines[i].country)) {

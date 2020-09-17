@@ -2,9 +2,6 @@
 
 require_once(dirname(__DIR__) . '/autoload.php');
 
-// require_once '../config/session.php';
-// require_once '../config/database.php';
-
 $model = new \models\Wines();
 
 if (
@@ -37,7 +34,7 @@ if (
 			if ($move_result) {
 
         $sth = $model->create();
-
+        
 				$sth->bindValue(':name', $name);
 				$sth->bindValue(':year', $year);
 				$sth->bindValue(':grapes', $grapes);
@@ -45,8 +42,8 @@ if (
 				$sth->bindValue(':region', $region);
 				$sth->bindValue(':description', $description);
 				$sth->bindValue(':author', $user_id);
-				$sth->bindValue(':picture', $img_name);
-
+        $sth->bindValue(':picture', $img_name);
+        
 				$sth->execute();
 
         header('Location: ../../admin.php');

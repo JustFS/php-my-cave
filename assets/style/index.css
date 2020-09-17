@@ -335,22 +335,37 @@ i {
   max-width: 1150px;
   margin: 0 auto;
 }
+.admin-container h1 {
+  text-align: center;
+  margin-top: 25px;
+}
 .admin-container .login-container {
   background: #3E0018;
   border-radius: 30px;
   box-shadow: 1px 0 5px rgba(51, 51, 51, 0.267);
   padding: 12px;
-  margin: 45px 12px 12px;
+  margin: 45px auto 12px;
+  max-width: 700px;
+  text-align: center;
 }
 .admin-container .login-container h2 {
   text-align: center;
   width: 100%;
-  margin: 20px 0;
+  padding: 0;
+  margin: 25px 0 15px;
 }
-.admin-container .login-container input {
+.admin-container .login-container form input {
   margin-bottom: 25px;
+  margin: 8px 0 16px;
+  border-radius: 10px;
+  background-color: #eee;
+  padding: 9px;
+  font-family: "font-1", sans-serif;
+  width: 350px;
+  max-width: 700px;
+  font-size: 1rem;
 }
-.admin-container .login-container input[type=submit] {
+.admin-container .login-container form input[type=submit] {
   background: #885C7E;
   border-radius: 20px;
   padding: 10px 20px;
@@ -361,7 +376,7 @@ i {
   margin: 20px auto 20px;
   transition: 0.2s;
 }
-.admin-container .login-container input[type=submit]:hover {
+.admin-container .login-container form input[type=submit]:hover {
   background: #88002D;
 }
 .admin-container h2 {

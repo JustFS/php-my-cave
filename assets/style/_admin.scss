@@ -58,6 +58,8 @@
         outline: none;
         margin: 20px auto 20px;
         transition: 0.2s;
+        color: $color-1;
+        cursor: pointer;
 
         &:hover {
           background: $color-2;
@@ -166,6 +168,7 @@
         font-size: 1.3rem;
         cursor: pointer;
         transition: 0.2s;
+        color: $color-1;
 
         &:hover {
           background: $color-2;
@@ -290,6 +293,9 @@
         border-radius: 35px;
         padding: 12px 0;
       }
+      label {
+        color: $color-1;
+      }
       .submit-btn {
         margin: 0 auto;
         text-align: center;
@@ -326,6 +332,10 @@
     visibility: visible;
     position: fixed;
     transform: scaleY(1) translate(-50%, -50%);
+  }
+
+  h4 {
+    color: $color-2;
   }
 
   .button-container {
